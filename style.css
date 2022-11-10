@@ -11,7 +11,8 @@ body{
 }
 
 .card{
-    background:#eaeaead0;
+    background:#000000d0;
+    color: white;
     padding: 5em;
     border-radius: 30px;
     width: 100%;
@@ -24,4 +25,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.description{
+    text-transform: capitalize;
 }

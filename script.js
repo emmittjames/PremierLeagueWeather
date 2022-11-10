@@ -10,12 +10,20 @@ let weather = {
             +"&units=" + "imperial"
         )
         .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-        })
-        //displayWeather: function(data){
-
-        //}
+        .then((data) => this.displayWeather(data));
+    },
+    displayWeather: function(data){
+        const {name} = data
+        const {icon,description} = data.weather[0]
+        const {temp,humidity} = data.main
+        const {speed} = data.wind
+        console.log(name,icon,description,temp,humidity,speed)
+        document.querySelector(".temp").innerText = temp + "°F"
+        document.querySelector(".city").innerText = "Weather in " + name
+        document.querySelector(".description").innerText = description
+        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%"
+        document.querySelector(".wind").innerText = speed + " MPH"
+        document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
     }
 }
 
