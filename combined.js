@@ -60,13 +60,9 @@ async function calculateTeam(city){
     console.log(index)
     console.log("finish")
     console.log(teamNames[index])
-    changeScreen(teamNames)
+
+    document.querySelector(".temp").innerText = temp + "°F"
+    document.querySelector(".team").innerText = "everton"
 }
 
-function changeScreen(teamName){
-    document.querySelector(".temp").innerText = "test"
-    document.querySelector(".city").innerText = "test"
-    document.querySelector(".team").innerText = teamName
-}
-
-calculateTeam("Tokyo")
+calculateTeam("Charlottesville")

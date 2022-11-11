@@ -38,6 +38,6 @@ function getSeasonYear(){
 }
 
 fetchPrem(getSeasonYear());
-for(let i=0;i<teamNames.length;i++){
-    console.log(teamNames[i])
+    for(let i=0;i<teamNames.length;i++){
+        console.log(teamNames[i])
 }
