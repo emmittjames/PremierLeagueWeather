@@ -52,20 +52,22 @@ async function calculateTeam(city){
     const name = weatherData[0]
     const temp = weatherData[1]
     const description = weatherData[2]
-    let index = calculateIndex(temp)
+    const index = calculateIndex(temp)
+    const message = getMessage(temp)
 
     const selectedTeam = teamNames[index]
     console.log(selectedTeam)
     console.log(name)
     console.log(temp)
     console.log(description)
-    changeScreen(selectedTeam, name, temp, description)
+    changeScreen(name, temp, description, message, selectedTeam)
 }
 
-function changeScreen(team, name, temp, description){
+function changeScreen(name, temp, description, message, team){
     document.querySelector(".team").innerText = team
     document.querySelector(".city").innerText = "Weather in " + name
     document.querySelector(".temp").innerText = temp + "°F"
+    document.querySelector(".message").innerText = message
     document.querySelector(".description").innerText = description
 }
 
@@ -81,4 +83,31 @@ function calculateIndex(temperature){
     return index
 }
 
-calculateTeam("Charlottesville")
+function getMessage(temperature){
+    let message = ""
+    if(temperature<30){
+        message += "Wow! It's cold"
+    }
+    else if(temperature<40){
+        message += "It's pretty cold"
+    }
+    else if(temperature<50){
+        message += "It's a little cold"
+    }
+    else if(temperature<60){
+        message += "It's fair"
+    }
+    else if(temperature<70){
+        message += "It's warm"
+    }
+    else if(temperature<85){
+        message += "It's pretty hot"
+    }
+    else{
+        message += "Wow! It's hot"
+    }
+    message += "\nJust like"
+    return message
+}
+
+calculateTeam("New york")
