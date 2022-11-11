@@ -35,17 +35,41 @@ async function fetchWeather(city){
     const apiKey = "55adcacc18884e6c11d90a5bb7f97e31"
     const response = await(fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=" + apiKey+"&units=" + "imperial"))
     const data = await response.json()
-    return getTemperature(data)
+    return getWeatherData(data)
 }
 
-async function getTemperature(data){
-    const temp = data.main["temp"]
-    return temp
+async function getWeatherData(data){
+    let weatherData = []
+    weatherData.push(data["name"])
+    weatherData.push(data.main["temp"])
+    weatherData.push(data.weather[0]["description"])
+    return weatherData
 }
 
 async function calculateTeam(city){
-    let teamNames = await fetchPrem(getSeasonYear())
-    let temperature = await fetchWeather(city)
+    const teamNames = await fetchPrem(getSeasonYear())
+    const weatherData = await fetchWeather(city)
+    const name = weatherData[0]
+    const temp = weatherData[1]
+    const description = weatherData[2]
+    let index = calculateIndex(temp)
+
+    const selectedTeam = teamNames[index]
+    console.log(selectedTeam)
+    console.log(name)
+    console.log(temp)
+    console.log(description)
+    changeScreen(selectedTeam, name, temp, description)
+}
+
+function changeScreen(team, name, temp, description){
+    document.querySelector(".team").innerText = team
+    document.querySelector(".city").innerText = "Weather in " + name
+    document.querySelector(".temp").innerText = temp + "°F"
+    document.querySelector(".description").innerText = description
+}
+
+function calculateIndex(temperature){
     let index = Math.floor(temperature/4)-5
     if(index<0){
         index=0;
@@ -54,19 +78,7 @@ async function calculateTeam(city){
         index=19;
     }
     index = 19-index
-
-    console.log(teamNames)
-    console.log(temperature)
-    console.log(index)
-    console.log("finish")
-    console.log(teamNames[index])
-    changeScreen(teamNames)
+    return index
 }
 
-function changeScreen(teamName){
-    document.querySelector(".temp").innerText = "test"
-    document.querySelector(".city").innerText = "test"
-    document.querySelector(".team").innerText = teamName
-}
-
-calculateTeam("Tokyo")
+calculateTeam("Charlottesville")
