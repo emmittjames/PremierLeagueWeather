@@ -66,9 +66,8 @@ async function calculateTeam(city){
 function changeScreen(name, temp, description, message, team){
     document.querySelector(".team").innerText = team
     document.querySelector(".city").innerText = "Weather in " + name
-    document.querySelector(".temp").innerText = temp + "°F"
+    document.querySelector(".conditions").innerText = temp + "°F, " + description
     document.querySelector(".message").innerText = message
-    document.querySelector(".description").innerText = description
 }
 
 function calculateIndex(temperature){
@@ -110,4 +109,8 @@ function getMessage(temperature){
     return message
 }
 
-calculateTeam("New york")
+calculateTeam("Mexico city")
+
+document.querySelector(".search button").addEventListener("click",function(){
+    calculateTeam(document.querySelector(".searchBar").value)
+})

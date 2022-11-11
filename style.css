@@ -6,6 +6,7 @@ body{
     margin:0;
     background:#222;
     font-family: 'Heebo', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-image: url(Chelsea.jpeg);
     background-size: cover;
 }
@@ -25,6 +26,34 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+
+button{
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 35px;
+    width: 35px;
+    background: #7c7c7c2b;
+    color: white;
+}
+
+button:hover{
+    background: #7c7c7c6b;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+input.searchBar{
+    border: none;
+    outline: none;
+    padding: 0.3em 1em;
+    border-radius: 18px;
+    height: 25px;
+    width: 300px;
+    background: #7c7c7c2b;
+    color: white;
 }
 
 .description{
