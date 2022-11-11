@@ -68,10 +68,19 @@ function changeScreen(name, temp, description, message, team){
     document.querySelector(".city").innerText = "Weather in " + name
     document.querySelector(".conditions").innerText = temp + "°F, " + description
     document.querySelector(".message").innerText = message
+    document.querySelector(".weather").classList.remove("loading")
+    changePicture(team);
+}
+
+function changePicture(team){
+    team = team.replace(/\s/g, '');
+    document.body.style.backgroundImage = "url(Pictures/" + team + ".jpeg)"
 }
 
 function calculateIndex(temperature){
+    const random = Math.floor(Math.random()*3)
     let index = Math.floor(temperature/4)-5
+    index+=random;
     if(index<0){
         index=0;
     }
@@ -109,8 +118,14 @@ function getMessage(temperature){
     return message
 }
 
-calculateTeam("Mexico city")
+calculateTeam("Charlottesville")
 
 document.querySelector(".search button").addEventListener("click",function(){
     calculateTeam(document.querySelector(".searchBar").value)
+})
+
+document.querySelector(".searchBar").addEventListener("keyup",function(event){
+    if(event.key == "Enter"){
+        calculateTeam(document.querySelector(".searchBar").value)
+    }
 })
