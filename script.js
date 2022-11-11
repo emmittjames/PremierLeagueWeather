@@ -73,6 +73,7 @@ function changeScreen(name, temp, description, message, team){
 }
 
 function changePicture(team){
+    team = "Crystal palace"
     team = team.replace(/\s/g, '');
     document.body.style.backgroundImage = "url(Pictures/" + team + ".jpeg)"
 }
@@ -118,7 +119,7 @@ function getMessage(temperature){
     return message
 }
 
-calculateTeam("Charlottesville")
+calculateTeam("New York")
 
 document.querySelector(".search button").addEventListener("click",function(){
     calculateTeam(document.querySelector(".searchBar").value)
