@@ -1,15 +1,12 @@
 let weather = {
     "apiKey": "55adcacc18884e6c11d90a5bb7f97e31",
+
     fetchWeather: function(city){
-        fetch(
-            "https://api.openweathermap.org/data/2.5/weather?q="
-            +city
-            +"&appid=" + this.apiKey
-            +"&units=" + "imperial"
-        )
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=" + this.apiKey+"&units=" + "imperial")
         .then((response) => response.json())
         .then((data) => this.displayWeather(data));
     },
+
     displayWeather: function(data){
         const {name} = data
         const {icon,description} = data.weather[0]
