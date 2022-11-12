@@ -32,23 +32,38 @@ header {
 }
 
 .weatherContainer{
-    background:#000000d0;
-    color: white;
     padding: 4em;
     border-radius: 30px;
     width: 100%;
     max-width: 400px;
     margin: 10px;
+    text-shadow: rgb(245, 245, 243) 1px 0 10px;
+
+    position: fixed;
+    left: 15%;
+    top: 12%;
+    transform: translate(-35%, -25%);
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.message{
+    font-size: 25px;
+    transform: translate(3%, 50%);
 }
 
 .teamContainer{
-    background:#000000d0;
-    color: white;
-    padding: 4em;
+    font-size: 50px;
     border-radius: 30px;
-    width: 100%;
-    max-width: 400px;
     margin: 10px;
+    text-shadow: rgb(245, 245, 243) 1px 0 10px;
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 button{

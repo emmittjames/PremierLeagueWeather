@@ -68,7 +68,6 @@ function changeScreen(name, temp, description, message, team){
     document.querySelector(".city").innerText = "Weather in " + name
     document.querySelector(".conditions").innerText = temp + "°F, " + description
     document.querySelector(".message").innerText = message
-    document.querySelector(".weather").classList.remove("loading")
     changePicture(team);
 }
 
