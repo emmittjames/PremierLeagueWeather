@@ -129,3 +129,5 @@ document.querySelector(".searchBar").addEventListener("keyup",function(event){
         calculateTeam(document.querySelector(".searchBar").value)
     }
 })
+
+//TODO: gui changes, get full name for clubs, remove text from search after searching
