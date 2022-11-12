@@ -73,7 +73,6 @@ function changeScreen(name, temp, description, message, team){
 }
 
 function changePicture(team){
-    team = "Crystal palace"
     team = team.replace(/\s/g, '');
     document.body.style.backgroundImage = "url(Pictures/" + team + ".jpeg)"
 }
