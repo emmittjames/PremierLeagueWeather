@@ -50,7 +50,7 @@ async function calculateTeam(city){
     const teamNames = await fetchPrem(getSeasonYear())
     const weatherData = await fetchWeather(city)
     const name = weatherData[0]
-    const temp = weatherData[1]
+    const temp = Math.floor(weatherData[1])
     const description = weatherData[2]
     const index = calculateIndex(temp)
     const message = getMessage(temp)
