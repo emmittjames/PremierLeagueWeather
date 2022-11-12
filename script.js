@@ -78,6 +78,10 @@ function changePicture(team){
 
 function calculateIndex(temperature){
     const random = Math.floor(Math.random()*3)
+    const posNeg = Math.random();
+    if(posNeg>.5){
+        random*=-1
+    }
     let index = Math.floor(temperature/4)-5
     index+=random;
     if(index<0){

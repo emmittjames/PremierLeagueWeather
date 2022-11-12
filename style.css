@@ -32,7 +32,6 @@ header {
 }
 
 .weatherContainer{
-    padding: 4em;
     border-radius: 30px;
     width: 100%;
     max-width: 400px;
@@ -42,7 +41,7 @@ header {
     position: fixed;
     left: 15%;
     top: 12%;
-    transform: translate(-35%, -25%);
+    transform: translate(-35%, 0%);
     font-size: 1.2em;
     font-weight: 400;
 }
