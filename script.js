@@ -133,4 +133,5 @@ document.querySelector(".searchBar").addEventListener("keyup",function(event){
     }
 })
 
-//TODO: gui changes, get full name for clubs, remove text from search after searching
+//TODO: get full name for clubs, remove text from search after searching, have only 1 api call per site load, use current location
+//Less important TODO: polish up gui a little bit
