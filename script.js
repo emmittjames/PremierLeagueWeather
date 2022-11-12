@@ -2,7 +2,7 @@ async function fetchPrem(year){
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '14499cf8bcmsh49dd9f051925dbfp1311fcjsna203bcd62a2d',
+            'X-RapidAPI-Key': config.footyKey,
             'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
         }
     };
@@ -32,7 +32,7 @@ function getSeasonYear(){
 }
 
 async function fetchWeather(city){
-    const apiKey = "55adcacc18884e6c11d90a5bb7f97e31"
+    const apiKey = config.weatherKey
     const response = await(fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=" + apiKey+"&units=" + "imperial"))
     const data = await response.json()
     return getWeatherData(data)
