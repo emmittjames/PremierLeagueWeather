@@ -172,16 +172,18 @@ function startup(){
 
 document.querySelector(".search button").addEventListener("click",function(){
     calculateTeam(document.querySelector(".searchBar").value)
+    document.querySelector(".searchBar").value = ""
 })
 
 document.querySelector(".searchBar").addEventListener("keyup",function(event){
     if(event.key == "Enter"){
         calculateTeam(document.querySelector(".searchBar").value)
+        document.querySelector(".searchBar").value = ""
     }
 })
 
 
 startup()
 
-//TODO: remove text from search after searching
+//TODO: remove text from search after searching, celcius/farenheight option
 //Less important TODO: polish up gui a little bit, once deployed make it look decent on mobile
