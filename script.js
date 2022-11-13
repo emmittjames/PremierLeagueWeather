@@ -88,6 +88,7 @@ async function calculateTeam(city){
 }
 
 function changeScreen(name, temp, description, message, team){
+    name = name.toLowerCase().replace(/(^\w|\s\w)/g, m => m.toUpperCase());
     document.querySelector(".team").innerText = team
     document.querySelector(".city").innerText = "Weather in " + name
     document.querySelector(".conditions").innerText = temp + "°F, " + description
