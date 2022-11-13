@@ -57,8 +57,7 @@ function getSeasonYear(){
 }
 
 async function fetchWeather(city){
-    const apiKey = config.weatherKey
-    const response = await(fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=" + apiKey+"&units=" + "imperial"))
+    const response = await(fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + config.weatherKey + "&units=" + "imperial"))
     const data = await response.json()
     return getWeatherData(data)
 }
@@ -74,7 +73,6 @@ async function getWeatherData(data){
 async function calculateTeam(city){
     const teamNames = await fetchPrem(getSeasonYear())
     const weatherData = await fetchWeather(city)
-    const name = weatherData[0]
     const temp = Math.floor(weatherData[1])
     const description = weatherData[2]
     const index = calculateteamIndex(temp)
@@ -83,10 +81,10 @@ async function calculateTeam(city){
     const selectedTeam = teamNames[index]
     console.log(teamNames)
     console.log(selectedTeam)
-    console.log(name)
+    console.log(city)
     console.log(temp)
     console.log(description)
-    changeScreen(name, temp, description, message, selectedTeam)
+    changeScreen(city, temp, description, message, selectedTeam)
 }
 
 function changeScreen(name, temp, description, message, team){
@@ -147,7 +145,30 @@ function getMessage(temperature){
     return message
 }
 
-calculateTeam("New York")
+async function fetchCity(lat, lon){
+    const response = await(fetch("http://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=1&appid=" +config.weatherKey))
+    const data = await response.json()
+    return data[0]["name"]
+}
+
+function startup(){
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const city = await fetchCity(position.coords.latitude, position.coords.longitude)
+                calculateTeam(city)
+            },
+            (error) => {
+                alert("Please enable location services to get local weather")
+                calculateTeam("New York")
+            }
+        )
+    } 
+    else {
+        alert("Please enable location services to get local weather")
+        calculateTeam("New York")
+    }
+}
 
 document.querySelector(".search button").addEventListener("click",function(){
     calculateTeam(document.querySelector(".searchBar").value)
@@ -159,5 +180,8 @@ document.querySelector(".searchBar").addEventListener("keyup",function(event){
     }
 })
 
-//TODO: get full name for clubs, remove text from search after searching, have only 1 api call per site load, use current location
-//Less important TODO: polish up gui a little bit
+
+startup()
+
+//TODO: remove text from search after searching
+//Less important TODO: polish up gui a little bit, once deployed make it look decent on mobile
