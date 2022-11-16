@@ -56,8 +56,14 @@ function getSeasonYear(){
     return year
 }
 
-async function fetchWeather(city){
+async function fetchWeatherUsingCity(city){
     const response = await(fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + config.weatherKey + "&units=" + "imperial"))
+    const data = await response.json()
+    return getWeatherData(data)
+}
+
+async function fetchWeatherUsingCoords(lon,lat){
+    const response = await(fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + config.weatherKey + "&units=" + "imperial"))
     const data = await response.json()
     return getWeatherData(data)
 }
@@ -70,9 +76,19 @@ async function getWeatherData(data){
     return weatherData
 }
 
-async function calculateTeam(city){
+async function calculateTeamUsingCity(city){
+    const weatherData = await fetchWeatherUsingCity(city)
+    calculateTeam(weatherData)
+}
+
+async function calculateTeamUsingCoords(lon,lat){
+    const weatherData = await fetchWeatherUsingCoords(lon,lat)
+    calculateTeam(weatherData)
+}
+
+async function calculateTeam(weatherData){ 
+    const city = weatherData[0]
     const teamNames = await fetchPrem(getSeasonYear())
-    const weatherData = await fetchWeather(city)
     const temp = Math.floor(weatherData[1])
     const description = weatherData[2]
     const index = calculateteamIndex(temp)
@@ -146,43 +162,32 @@ function getMessage(temperature){
     return message
 }
 
-async function fetchCity(lat, lon){
-    if(!lat || !lon){
-        console.log("Fetch city problems, defaulting to NY")
-        return "New York City"
-    }
-    const response = await(fetch("https://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=1&appid=" +config.weatherKey))
-    const data = await response.json()
-    return data[0]["name"]
-}
-
 function startup(){
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             async (position) => {
-                const city = await fetchCity(position.coords.latitude, position.coords.longitude)
-                calculateTeam(city)
+                calculateTeamUsingCoords(position.coords.longitude, position.coords.latitude)
             },
             (error) => {
                 alert("Please enable location services to get local weather")
-                calculateTeam("New York City")
+                calculateTeamUsingCity("New York City")
             }
         )
     } 
     else {
         alert("Please enable location services to get local weather")
-        calculateTeam("New York City")
+        calculateTeamUsingCity("New York City")
     }
 }
 
 document.querySelector(".search button").addEventListener("click",function(){
-    calculateTeam(document.querySelector(".searchBar").value)
+    calculateTeamUsingCity(document.querySelector(".searchBar").value)
     document.querySelector(".searchBar").value = ""
 })
 
 document.querySelector(".searchBar").addEventListener("keyup",function(event){
     if(event.key == "Enter"){
-        calculateTeam(document.querySelector(".searchBar").value)
+        calculateTeamUsingCity(document.querySelector(".searchBar").value)
         document.querySelector(".searchBar").value = ""
     }
 })
@@ -190,5 +195,5 @@ document.querySelector(".searchBar").addEventListener("keyup",function(event){
 
 startup()
 
-//TODO: remove text from search after searching, celcius/farenheight option
+//TODO: celcius/farenheight option
 //Less important TODO: polish up gui a little bit, once deployed make it look decent on mobile
