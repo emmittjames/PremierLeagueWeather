@@ -147,6 +147,10 @@ function getMessage(temperature){
 }
 
 async function fetchCity(lat, lon){
+    if(!lat || !lon){
+        console.log("Fetch city problems, defaulting to NY")
+        return "New York City"
+    }
     const response = await(fetch("http://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=1&appid=" +config.weatherKey))
     const data = await response.json()
     return data[0]["name"]
@@ -161,13 +165,13 @@ function startup(){
             },
             (error) => {
                 alert("Please enable location services to get local weather")
-                calculateTeam("New York")
+                calculateTeam("New York City")
             }
         )
     } 
     else {
         alert("Please enable location services to get local weather")
-        calculateTeam("New York")
+        calculateTeam("New York City")
     }
 }
 
