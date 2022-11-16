@@ -151,7 +151,7 @@ async function fetchCity(lat, lon){
         console.log("Fetch city problems, defaulting to NY")
         return "New York City"
     }
-    const response = await(fetch("http://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=1&appid=" +config.weatherKey))
+    const response = await(fetch("https://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=1&appid=" +config.weatherKey))
     const data = await response.json()
     return data[0]["name"]
 }
