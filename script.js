@@ -113,6 +113,7 @@ function changeScreen(name, temp, description, message, team){
     document.querySelector(".conditions").innerText = temp + description
     document.querySelector(".message").innerText = message
     changePicture(team);
+    document.querySelector(".headerContainer").classList.remove("loading")
 }
 
 function changePicture(team){
@@ -212,12 +213,12 @@ document.querySelector(".toggle").addEventListener("change",function(e){
     const commaIndex = text.indexOf(",")
     const description = text.substring(commaIndex)
     let temp = text.substring(0,commaIndex-2)
-    if(document.querySelector(".toggle").checked){    //Celsius
+    if(document.querySelector(".toggle").checked){      //Celsius
         celsius = true;
         temp = convertToCelsius(temp)
         tempStr = temp + "°C"
     }
-    else{       //Fahrenheit
+    else{                                               //Fahrenheit
         celsius = false;
         temp = convertToFahrenheit(temp)
         tempStr = temp + "°F"

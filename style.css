@@ -92,6 +92,10 @@ button:hover{
     margin: 0.5em;
 }
 
+.headerContainer.loading{
+    visibility: hidden;
+}
+
 input[type="text"].searchBar{
     border: none;
     outline: none;
