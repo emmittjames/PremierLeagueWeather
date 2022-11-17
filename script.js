@@ -1,3 +1,5 @@
+let celsius = false
+
 function getDataFromLocalStorage() {
     if (typeof window !== 'undefined') {
         const data = JSON.parse(localStorage.getItem("prem"))
@@ -88,18 +90,19 @@ async function calculateTeamUsingCoords(lon,lat){
 
 async function calculateTeam(weatherData){ 
     const city = weatherData[0]
-    const teamNames = await fetchPrem(getSeasonYear())
-    const temp = Math.floor(weatherData[1])
+    let temp = Math.round(weatherData[1])
     const description = weatherData[2]
-    const index = calculateteamIndex(temp)
     const message = getMessage(temp)
-
-    const selectedTeam = teamNames[index]
-    console.log(teamNames)
-    console.log(selectedTeam)
-    console.log(city)
-    console.log(temp)
-    console.log(description)
+    const teamNames = await fetchPrem(getSeasonYear())
+    const teamIndex = calculateteamIndex(temp)
+    const selectedTeam = teamNames[teamIndex]
+    if(celsius){
+        temp = convertToCelsius(temp)
+        temp += "°C, "
+    }
+    else{
+        temp += "°F, "
+    }
     changeScreen(city, temp, description, message, selectedTeam)
 }
 
@@ -107,7 +110,7 @@ function changeScreen(name, temp, description, message, team){
     name = name.toLowerCase().replace(/(^\w|\s\w)/g, m => m.toUpperCase());
     document.querySelector(".team").innerText = team
     document.querySelector(".city").innerText = "Weather in " + name
-    document.querySelector(".conditions").innerText = temp + "°F, " + description
+    document.querySelector(".conditions").innerText = temp + description
     document.querySelector(".message").innerText = message
     changePicture(team);
 }
@@ -118,12 +121,12 @@ function changePicture(team){
 }
 
 function calculateteamIndex(temperature){
-    let random = Math.floor(Math.random()*3)
+    let random = Math.round(Math.random()*3)
     const posNeg = Math.random();
     if(posNeg>.5){
         random*=-1
     }
-    let index = Math.floor(temperature/4)-5
+    let index = Math.round(temperature/4)-5
     index+=random;
     if(index<0){
         index=0;
@@ -180,16 +183,46 @@ function startup(){
     }
 }
 
+function convertToCelsius(temp){
+    temp-=32
+    temp*=(5/9)
+    return Math.round(temp)
+}
+
+function convertToFahrenheit(temp){
+    temp*=(9/5)
+    temp+=32
+    return Math.round(temp)
+}
+
 document.querySelector(".search button").addEventListener("click",function(){
     calculateTeamUsingCity(document.querySelector(".searchBar").value)
     document.querySelector(".searchBar").value = ""
 })
 
-document.querySelector(".searchBar").addEventListener("keyup",function(event){
-    if(event.key == "Enter"){
+document.querySelector(".searchBar").addEventListener("keyup",function(e){
+    if(e.key == "Enter"){
         calculateTeamUsingCity(document.querySelector(".searchBar").value)
         document.querySelector(".searchBar").value = ""
     }
+})
+
+document.querySelector(".toggle").addEventListener("change",function(e){
+    const text = document.querySelector(".conditions").innerText
+    const commaIndex = text.indexOf(",")
+    const description = text.substring(commaIndex)
+    let temp = text.substring(0,commaIndex-2)
+    if(document.querySelector(".toggle").checked){    //Celsius
+        celsius = true;
+        temp = convertToCelsius(temp)
+        tempStr = temp + "°C"
+    }
+    else{       //Fahrenheit
+        celsius = false;
+        temp = convertToFahrenheit(temp)
+        tempStr = temp + "°F"
+    }
+    document.querySelector(".conditions").innerText = tempStr + description
 })
 
 
