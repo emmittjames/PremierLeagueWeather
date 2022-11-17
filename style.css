@@ -11,6 +11,9 @@ body{
 }
 
 header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -18,8 +21,8 @@ header {
     background: #111;
     height: auto;
     width: 100vw;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
     color: #fff;
     opacity: 80%;
 }
@@ -28,6 +31,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0.5em;
     letter-spacing: 2px;
 }
 
@@ -44,6 +48,10 @@ header {
     transform: translate(-35%, 0%);
     font-size: 1.2em;
     font-weight: 400;
+}
+
+.description{
+    text-transform: capitalize;
 }
 
 .message{
@@ -66,7 +74,6 @@ header {
 }
 
 button{
-    margin: 0.5em;
     border-radius: 50%;
     border: none;
     height: 35px;
@@ -81,6 +88,10 @@ button:hover{
     transition: 0.2s ease-in-out;
 }
 
+.unitSlider{
+    margin: 0.5em;
+}
+
 input[type="text"].searchBar{
     border: none;
     outline: none;
@@ -90,10 +101,6 @@ input[type="text"].searchBar{
     width: 24em;
     background: #7c7c7c2b;
     color: white;
-}
-
-.description{
-    text-transform: capitalize;
 }
 
 input[type="checkbox"].toggle + label{
