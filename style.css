@@ -185,7 +185,7 @@ input[type="checkbox"].toggle{
         left: 47%;
         top: 10%;
         transform: translateX(-50%);
-        font-size: 4vw;
+        font-size: 3.5vw;
         white-space: nowrap
     }
 
