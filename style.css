@@ -76,7 +76,7 @@ button:hover{
     text-shadow: rgb(245, 245, 243) 1px 0 10px;
 
     position: absolute;
-    left: 15%;
+    left: 16%;
     top: 12%;
     transform: translate(-35%, 0%);
     font-size: 1.2em;
@@ -162,7 +162,7 @@ input[type="checkbox"].toggle{
 
 
 /* Mobile/tablet view */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
 
     input[type="text"].searchBar{
         border: none;
