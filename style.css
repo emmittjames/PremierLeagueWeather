@@ -161,8 +161,8 @@ input[type="checkbox"].toggle{
 }
 
 
-/* Mobile view */
-@media only screen and (max-width: 768px) {
+/* Mobile/tablet view */
+@media only screen and (max-width: 1000px) {
 
     input[type="text"].searchBar{
         border: none;
