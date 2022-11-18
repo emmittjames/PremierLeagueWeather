@@ -227,5 +227,3 @@ document.querySelector(".toggle").addEventListener("change",function(e){
 })
 
 startup()
-
-//TODO: Fix pictures on mobile?
