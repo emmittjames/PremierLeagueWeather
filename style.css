@@ -85,11 +85,6 @@ button:hover{
     text-transform: capitalize;
 }
 
-.message{
-    font-size: 0.5em;
-    transform: translate(3%, 80%);
-}
-
 .teamContainer{
     font-size: 4vw;
     border-radius: 30px;
@@ -106,6 +101,11 @@ button:hover{
     left: 50%;
     top: 55%;
     transform: translate(-50%, -50%);
+}
+
+.message{
+    font-size: 0.5em;
+    transform: translate(3%, 80%);
 }
 
 input[type="checkbox"].toggle + label{
@@ -175,44 +175,43 @@ input[type="checkbox"].toggle{
     }
 
     .weatherContainer{
-        border-radius: 30px;
-        width: 100%;
-        max-width: 400px;
-        margin: 10px;
         text-shadow: rgb(245, 245, 243) 1px 0 10px;
-
         position: absolute;
-        left: 15%;
-        top: 12%;
-        transform: translate(-35%, 0%);
-        font-size: 1.2em;
-    }
-
-    .description{
-        text-transform: capitalize;
-    }
-
-    .message{
-        font-size: 0.5em;
-        transform: translate(3%, 80%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        left: 47%;
+        top: 10%;
+        transform: translateX(-50%);
+        font-size: 5vw;
+        white-space: nowrap
     }
 
     .teamContainer{
-        font-size: 4vw;
-        border-radius: 30px;
-        margin: 10px;
+        font-size: auto;
         text-shadow: rgb(245, 245, 243) 1px 0 10px;
         width: auto;
         white-space: nowrap;
 
         position: absolute;
         display: flex;
+        align-items: center;
         flex-direction: column;
-        justify-content: center;
-        align-items: left;
-        left: 50%;
+        left: 47%;
         top: 55%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -20%);
+    }
+
+    .message{
+        font-size: 7vw;
+        transform: translateY(30%);
+        text-align: center;
+    }
+
+    .team{
+        font-size: 10vw;
+        transform: translateY(40%);
     }
 
     input[type="checkbox"].toggle + label{

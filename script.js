@@ -229,4 +229,4 @@ document.querySelector(".toggle").addEventListener("change",function(e){
 
 startup()
 
-//TODO: Make it look decent on mobile
+//TODO: Fix pictures on mobile?
