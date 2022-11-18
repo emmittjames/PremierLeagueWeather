@@ -185,7 +185,7 @@ input[type="checkbox"].toggle{
         left: 47%;
         top: 10%;
         transform: translateX(-50%);
-        font-size: 3.5vw;
+        font-size: 4vw;
         white-space: nowrap
     }
 
@@ -201,7 +201,7 @@ input[type="checkbox"].toggle{
         flex-direction: column;
         left: 47%;
         top: 55%;
-        transform: translate(-50%, -20%);
+        transform: translate(-50%, -50%);
     }
 
     .message{
