@@ -226,7 +226,6 @@ document.querySelector(".toggle").addEventListener("change",function(e){
     document.querySelector(".conditions").innerText = tempStr + description
 })
 
-
 startup()
 
 //TODO: Fix pictures on mobile?
