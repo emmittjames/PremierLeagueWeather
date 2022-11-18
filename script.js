@@ -229,5 +229,4 @@ document.querySelector(".toggle").addEventListener("change",function(e){
 
 startup()
 
-//TODO: celcius/farenheight option
-//Less important TODO: polish up gui a little bit, once deployed make it look decent on mobile
+//TODO: Make it look decent on mobile
