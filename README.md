@@ -15,7 +15,7 @@ Project created with:
 * CSS3
 * [OpenWeather API](https://openweathermap.org/api)
 * [API-Football](https://www.api-football.com)
-	
+
 ## Cloning
 1. Clone the repository
 2. Create a file named "config.js" in the root directory
