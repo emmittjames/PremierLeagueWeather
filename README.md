@@ -6,7 +6,7 @@
 * [Setup](#setup)
 
 ## General info
-This weather app will take in the weather of the current location or a searched location and display an English Premier League team that accurately corresponds to how "hot" they are currently doing.
+This weather app will take in the weather of the current location or a searched location and display an English Premier League team that corresponds to the weather based on how "hot" the team is currently doing
 	
 ## Technologies
 Project created with:
