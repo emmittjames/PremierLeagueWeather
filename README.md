@@ -1,4 +1,4 @@
-# Premier League Weather
+# [Premier League Weather](https://eplweather.com)
 
 ## Table of contents
 * [General info](#general-info)
@@ -13,5 +13,7 @@ Project created with:
 * JavaScript
 * HTML5
 * CSS3
+* [OpenWeather API](https://openweathermap.org/api)
+* [API-Football](https://www.api-football.com)
 	
 ## Setup
