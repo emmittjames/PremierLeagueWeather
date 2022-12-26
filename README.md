@@ -6,6 +6,7 @@
 * [Setup](#setup)
 
 ## General info
+#### Website link: [eplweather.com](https://eplweather.com)
 This weather app will take in the weather of the current location or a searched location and display an English Premier League team that corresponds to the weather based on how "hot" the team is currently doing
 	
 ## Technologies
