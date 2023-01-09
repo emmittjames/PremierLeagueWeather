@@ -50,7 +50,7 @@ function getTeamNames(data){
 
 function getSeasonYear(){
     const today = new Date()
-    const year = today.getFullYear()
+    let year = today.getFullYear()
     const premStart = new Date(year, 8, 1);
     if(today<premStart){
         year--;
