@@ -21,7 +21,7 @@ Project created with:
 1. Clone the repository
 2. Generate an [OpenWeather API](https://openweathermap.org/api) key and an [API-Football](https://www.api-football.com) key
 3. Create a file named "config.js" in the root directory
-4. Put this code into the file:
+4. Put this code into the file and put your generated API keys into it:
 ```
 var config = {
     footyKey : 'Your API-Football key',
