@@ -3,7 +3,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Setup](#setup)
+* [Cloning](#cloning)
 
 ## General info
 #### Website link: [eplweather.com](https://eplweather.com)
