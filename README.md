@@ -1,11 +1,12 @@
 # [Premier League Weather](https://eplweather.com)
 
 ## Table of contents
-* [General info](#general-info)
+* [General Info](#general-info)
 * [Technologies](#technologies)
 * [Cloning](#cloning)
+* [Sample Images](#sample-images)
 
-## General info
+## General Info
 #### Website link: [eplweather.com](https://eplweather.com)
 This weather app will take in the weather of the current location or a searched location and display an English Premier League team that corresponds to the weather based on how "hot" the team is currently doing
 	
@@ -29,3 +30,14 @@ var config = {
 }
 ```
 5. Everything should be up and running!
+
+## Sample Images
+
+#### Weather in current location
+<img width="1440" alt="Current location" src="https://user-images.githubusercontent.com/90576219/216737857-4b5d41c6-4099-46c9-ac6f-b8f3cd132b02.png">
+
+#### Weather in a searched location
+<img width="1439" alt="Searched location" src="https://user-images.githubusercontent.com/90576219/216737869-6990d143-b276-419d-9125-4b143cfe08cb.png">
+
+#### Loading screen
+<img width="1440" alt="Loading page" src="https://user-images.githubusercontent.com/90576219/216737969-f2a9f8a6-3205-4e5e-a168-bc50e3b86b7e.png">
