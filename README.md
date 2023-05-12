@@ -5,6 +5,7 @@
 * [Technologies](#technologies)
 * [Cloning](#cloning)
 * [Sample Images](#sample-images)
+* [License](#license)
 
 ## General Info
 #### Website link: [eplweather.com](https://eplweather.com)
@@ -41,3 +42,6 @@ var config = {
 
 #### Loading screen
 <img width="1440" alt="Loading page" src="https://user-images.githubusercontent.com/90576219/216737969-f2a9f8a6-3205-4e5e-a168-bc50e3b86b7e.png">
+
+## License
+Distributed under the MIT License. See ```LICENSE``` for more information
