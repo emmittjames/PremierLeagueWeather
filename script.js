@@ -51,7 +51,7 @@ function getTeamNames(data){
 function getSeasonYear(){
     const today = new Date()
     let year = today.getFullYear()
-    const premStart = new Date(year, 8, 1);
+    const premStart = new Date(year, 7, 20);
     if(today<premStart){
         year--;
     }
@@ -95,6 +95,7 @@ async function calculateTeam(weatherData){
     const message = getMessage(temp)
     const teamNames = await fetchPrem(getSeasonYear())
     const teamIndex = calculateteamIndex(temp)
+    console.log(teamNames)
     const selectedTeam = teamNames[teamIndex]
     if(celsius){
         temp = convertToCelsius(temp)
