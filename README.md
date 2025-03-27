@@ -1,4 +1,4 @@
-# [Premier League Weather](https://eplweather.com)
+# [Premier League Weather](https://eplweather.netlify.app/)
 
 ## Table of contents
 * [General Info](#general-info)
@@ -8,7 +8,7 @@
 * [License](#license)
 
 ## General Info
-#### Website link: [eplweather.com](https://eplweather.com)
+#### Website link: [eplweather.com](https://eplweather.netlify.app/)
 This weather app will take in the weather of the current location or a searched location and display an English Premier League team that corresponds to the weather based on how "hot" the team is currently doing
 	
 ## Technologies
